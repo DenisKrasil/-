@@ -1,19 +1,19 @@
-public class mytree {
+public class Main {
     public static void main (String[] args) {
 
-        Man Pavel = new Man("Pavel" , "Ivanov" );
-        Woman Helena = new Woman("Helena" , "Ivanova");
-        Man Max = new Man("Max" , "Ivanov" );
-        Woman Inna = new Woman("Inna", "Ivanova");
-        Man Sergey = new Man("Sergey" , "Karpov" );
-        Woman Olga = new Woman("Olga", "Frolova");
-        Man Denis = new Man("Denis" , "Ivanov" );
-        Man Igor = new Man("Igor" , "Ivanov" );
-        Man Alex = new Man("Alex" , "Karpov" );
-        // System.out.println(Pavel);
-        // System.out.println(Helena);
-        // System.out.println(Max);
-        // System.out.println(Inna);
+        Human Pavel = new Human("Pavel" , "Ivanov" , "Муж");
+        Human Helena = new Human("Helena" , "Ivanova" , "Жен");
+        Human Max = new Human("Max" , "Ivanov" , "Муж");
+        Human Inna = new Human("Inna", "Ivanova" , "Жен");
+        Human Sergey = new Human("Sergey" , "Karpov" , "Муж");
+        Human Olga = new Human("Olga", "Frolova" , "Жен");
+        Human Denis = new Human("Denis" , "Ivanov" , "Муж");
+        Human Igor = new Human("Igor" , "Ivanov" , "Муж");
+        Human Alex = new Human("Alex" , "Karpov" , "Муж");
+        System.out.println(Pavel);
+        System.out.println(Helena);
+        System.out.println(Max);
+        System.out.println(Inna);
         Pavel.addCommunication(Max, TypeCommunication.Son);
         Pavel.addCommunication(Inna, TypeCommunication.Daughter);
         Helena.addCommunication(Max, TypeCommunication.Son);
@@ -36,12 +36,13 @@ public class mytree {
         Alex.addCommunication(Sergey, TypeCommunication.Mother);
 
 
-        Pavel.showCommunication(TypeCommunication.Son);
-        Max.showCommunication(TypeCommunication.Son);
+        Pavel.showPeopleByConnection(TypeCommunication.Son);
+        Max.showPeopleByConnection(TypeCommunication.Son);
 
         Alex.findGrandparrents();
         Igor.findGrandparrents();
         Denis.findGrandparrents();
         Max.findSibling();
+        
     }
 }

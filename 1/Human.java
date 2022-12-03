@@ -1,13 +1,17 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Human {
+public class Human  {
     private String name;
     private String surname;
+    private String gender;
+    List<FamilyCommunication> listCommunication;
 
-    public Human(String name, String surname) {
+    public Human(String name, String surname, String gender) {
         this.name = name;
         this.surname = surname;
+        this.gender = gender;
+        this.listCommunication = new ArrayList<>();
     }
 
     public String getName() {
@@ -17,7 +21,7 @@ public class Human {
     public void setName(String name){
         this.name = name;
     }
-    
+
     public String getSurname() {
         return surname;
     }
@@ -26,13 +30,22 @@ public class Human {
         this.surname = surname;
     }
 
+    
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+
+    public String getGender() {
+        return gender;
+    }
 
     @Override
     public String toString() {
-        return name + " " + surname;
+        return name + " " + surname + " " + gender;
     }
 
-    private List<FamilyCommunication> listCommunication = new ArrayList<>();
+
 
     public void addCommunication(FamilyCommunication communication){
         listCommunication.add(communication);
@@ -42,7 +55,7 @@ public class Human {
         addCommunication(new FamilyCommunication(human, typeCommunication));
     }
 
-    public void showCommunication(TypeCommunication typeCommunication){
+    public void showPeopleByConnection(TypeCommunication typeCommunication){
         for (FamilyCommunication communication: listCommunication){
             if (communication.getTypeCommunication() == typeCommunication){
                 System.out.println(communication.getHuman());
@@ -55,28 +68,28 @@ public class Human {
     public void findGrandparrents(){
         for (FamilyCommunication communication: listCommunication){
             if (communication.getTypeCommunication() == TypeCommunication.Father){
-                communication.getHuman().showCommunication(TypeCommunication.Father);
-                communication.getHuman().showCommunication(TypeCommunication.Mother);
+                communication.getHuman().showPeopleByConnection(TypeCommunication.Father);
+                communication.getHuman().showPeopleByConnection(TypeCommunication.Mother);
             }
             if (communication.getTypeCommunication() == TypeCommunication.Mother){
-                communication.getHuman().showCommunication(TypeCommunication.Father);
-                communication.getHuman().showCommunication(TypeCommunication.Mother);
+                communication.getHuman().showPeopleByConnection(TypeCommunication.Father);
+                communication.getHuman().showPeopleByConnection(TypeCommunication.Mother);
             }
         }
     }
 
     // Показывает братьев и сестер
-    
+
     public void findSibling(){
         for (FamilyCommunication communication: listCommunication){
             if (communication.getTypeCommunication() == TypeCommunication.Father ) {
-                communication.getHuman().showCommunication(TypeCommunication.Son);
-                communication.getHuman().showCommunication(TypeCommunication.Daughter);
+                communication.getHuman().showPeopleByConnection(TypeCommunication.Son);
+                communication.getHuman().showPeopleByConnection(TypeCommunication.Daughter);
                 break;
             }
             else if (communication.getTypeCommunication() == TypeCommunication.Mother) {
-                communication.getHuman().showCommunication(TypeCommunication.Son);
-                communication.getHuman().showCommunication(TypeCommunication.Daughter);
+                communication.getHuman().showPeopleByConnection(TypeCommunication.Son);
+                communication.getHuman().showPeopleByConnection(TypeCommunication.Daughter);
                 break;
             }
         }
