@@ -1,19 +1,17 @@
-// package Model;
+package Model;
 
-// public interface Model {
-//     int result();
+public interface Model {
 
+    void setX(int value);
 
-//     void setX(int value);
+    void setY(int value);
 
-//     void setY(int value);
+    int Sum();
 
-//     int Sum();
+    int Mult();
 
-//     int Mult();
+    int Div();
 
-//     int Div();
+    int Sub();
 
-//     int Sub();
-
-// }
+}

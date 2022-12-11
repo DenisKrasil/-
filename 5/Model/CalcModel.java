@@ -1,6 +1,6 @@
 package Model;
 
-public  class CalcModel  {
+public  class CalcModel implements Model  {
 
     int x, y;
     

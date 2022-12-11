@@ -1,10 +1,14 @@
 import Presenter.Presenter;
+import View.MyView;
 import View.View;
 import Model.CalcModel;
+import Model.Model;
 
 public class Program {
     public static void main(String[] args) {
-        Presenter presenter = new Presenter(new View(), new CalcModel());
+        View view = new MyView();
+        Model model = new CalcModel();
+        Presenter presenter = new Presenter(view, model);
 
         presenter.buttonClick();
         presenter.buttonClick();
