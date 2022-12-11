@@ -45,8 +45,6 @@ public class Human  {
         return name + " " + surname + " " + gender;
     }
 
-
-
     public void addCommunication(FamilyCommunication communication){
         listCommunication.add(communication);
     }
