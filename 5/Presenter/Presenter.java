@@ -1,37 +1,37 @@
 package Presenter;
 
 import View.View;
-import Model.CalcModel;
+import Model.Model;
 
 
 public class Presenter {
-    View View;
-    CalcModel Model;
+    View view;
+    Model model;
 
-    public Presenter(View view, CalcModel calcModel) {
-        View = view;
-        Model = calcModel;
+    public Presenter(View view, Model model) {
+        this.view = view;
+        this.model = model;
     }
 
     public void buttonClick(){
-        int a = View.getValue("Введите первое число:");
-        int b = View.getValue("Введите второе число");
-        Model.setX(a);
-        Model.setY(b);
-        char operation = View.getOpperation("Введите операцию (+,-,/,*) :");
+        int a = view.getValue("Введите первое число: ");
+        int b = view.getValue("Введите второе число: ");
+        model.setX(a);
+        model.setY(b);
+        char operation = view.getOpperation("Введите операцию (+,-,/,*) :");
         while (true){
             switch (operation){
                 case '+':
-                    System.out.println("Результат:  " + Model.Sum());
+                    System.out.println("Результат:  " + model.Sum());
                     break;
                 case '-':
-                    System.out.println("Результат: " + Model.Sub());
+                    System.out.println("Результат:  " + model.Sub());
                     break;
                 case '*':
-                    System.out.println("Результат: " + Model.Mult());
+                    System.out.println("Результат:  " + model.Mult());
                     break;
                 case '/':
-                    System.out.println("Результат: " + Model.Div());
+                    System.out.println("Результат:  " + model.Div());
                     break;
                 default:
                     System.out.println("Введен неверный символ");
